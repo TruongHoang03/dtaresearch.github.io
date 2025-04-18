@@ -2,13 +2,12 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # hoặc master/main tùy vào nhánh chính của bạn
-  workflow_dispatch:  # Cho phép chạy thủ công từ UI
+    branches: [ main ]
+  workflow_dispatch:
 
-# Đảm bảo chỉ một workflow chạy tại một thời điểm
 concurrency:
   group: "pages"
-  cancel-in-progress: true  # Hủy các workflow đang chạy để tránh xung đột
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -16,7 +15,6 @@ permissions:
   id-token: write
 
 jobs:
-  # Gộp build và deploy thành một job duy nhất
   build-and-deploy:
     runs-on: ubuntu-latest
     environment:
@@ -24,6 +22,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v3
+      
+      # Thêm action upload-artifact một cách rõ ràng
+      - name: Setup upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: placeholder-artifact
+          path: .github/workflows
+          if-no-files-found: ignore
+          retention-days: 1
       
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -42,7 +49,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist  # hoặc thư mục build của bạn (build, out, etc.)
+          path: ./dist
           
       - name: Deploy to GitHub Pages
         id: deployment

@@ -1,0 +1,189 @@
+Tôi sẽ tạo Dockerfile và docker-compose.yml để triển khai ứng dụng Next.js của bạn. Đây là cấu hình tối ưu cho môi trường production:
+
+=== Start File ===
+Dockerfile
+---
+# Stage 1: Building the code
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY prisma ./prisma/
+
+# Install dependencies
+RUN npm install
+
+# Copy project files
+COPY . .
+
+# Build project
+RUN npm run build
+
+# Stage 2: Run the built code
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# Set to production environment
+ENV NODE_ENV production
+
+# Create system user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy built files from builder
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+# Set correct permissions
+RUN chown -R nextjs:nodejs /app
+
+# Switch to non-root user
+USER nextjs
+
+# Expose port
+EXPOSE 3000
+
+# Set hostname
+ENV HOSTNAME "0.0.0.0"
+
+# Start the app
+CMD ["node", "server.js"]
+=== End File ===
+
+=== Start File ===
+docker-compose.yml
+---
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=${DATABASE_URL}
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - app-network
+
+  # Nếu bạn cần database (tuỳ chọn)
+  db:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+=== End File ===
+
+=== Start File ===
+.env.example
+---
+# Database configuration
+DATABASE_URL="postgresql://user:password@db:5432/dbname?schema=public"
+DB_USER=user
+DB_PASSWORD=password
+DB_NAME=dbname
+
+# App configuration
+NODE_ENV=production
+=== End File ===
+
+=== Start File ===
+.dockerignore
+---
+node_modules
+.next
+.git
+.env
+.env.*
+npm-debug.log
+README.md
+.dockerignore
+Dockerfile
+docker-compose.yml
+=== End File ===
+
+Hướng dẫn sử dụng:
+
+1. Tạo file .env từ .env.example:
+```bash
+cp .env.example .env
+```
+
+2. Chỉnh sửa các biến môi trường trong file .env theo cấu hình của bạn.
+
+3. Build và chạy containers:
+```bash
+docker-compose up -d --build
+```
+
+4. Kiểm tra logs:
+```bash
+docker-compose logs -f
+```
+
+5. Dừng containers:
+```bash
+docker-compose down
+```
+
+Một số lưu ý quan trọng:
+
+1. Cấu trúc Multi-stage build trong Dockerfile giúp:
+- Giảm kích thước image cuối cùng
+- Tăng bảo mật bằng cách chỉ giữ lại các file cần thiết
+- Sử dụng non-root user để tăng bảo mật
+
+2. Docker Compose cung cấp:
+- Môi trường development/production độc lập
+- Quản lý database dễ dàng (nếu cần)
+- Network isolation giữa các services
+- Volume persistence cho database
+
+3. Security features:
+- Non-root user trong container
+- Environment variables management
+- Network isolation
+- Health checks
+
+4. Performance optimizations:
+- Multi-stage builds
+- Cache layers optimization
+- Production-ready Node.js configuration
+
+5. Monitoring & Maintenance:
+- Health check configuration
+- Automatic container restart
+- Volume management for data persistence
+
+Để triển khai trên môi trường production, bạn nên:
+1. Sử dụng Docker registry an toàn
+2. Cấu hình SSL/TLS
+3. Thiết lập monitoring và logging
+4. Cấu hình backup cho volumes
+5. Sử dụng container orchestration (như Kubernetes) cho scale và high availability

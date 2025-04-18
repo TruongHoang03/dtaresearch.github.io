@@ -3,7 +3,7 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
-  output: 'export',  // This enables static exports
+  output: 'export',  // This enables static exports for GitHub Pages
   outputFileTracingRoot: path.join(__dirname, '../'),
   eslint: {
     ignoreDuringBuilds: true,
@@ -13,12 +13,8 @@ const nextConfig = {
   },
   basePath: process.env.NODE_ENV === 'production' ? '/landing-page' : '',  // Replace "landing-page" with your repo name
   images: {
-    unoptimized: true,  // For GitHub Pages compatibility
-  },
-  experimental: {
-    images: {
-      allowFutureImage: true,
-    },
+    unoptimized: true,  // Required for static export
+    domains: [],        // Add any external image domains if needed
   },
 };
 

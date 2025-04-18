@@ -7,7 +7,16 @@ export function Hero() {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      // Lấy vị trí của section
+      const sectionTop = section.getBoundingClientRect().top;
+      // Vị trí hiện tại + vị trí của section - offset (để tránh bị che bởi header nếu có)
+      const offsetPosition = window.pageYOffset + sectionTop - 80; // 80px là offset, điều chỉnh theo header của bạn
+      
+      // Scroll đến vị trí có tính toán offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 

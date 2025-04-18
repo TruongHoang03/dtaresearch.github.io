@@ -30,7 +30,7 @@ export function Contact() {
               <div className="text-blue-600 text-2xl mb-4">📞</div>
               <h3 className="text-xl font-semibold mb-2">Điện thoại</h3>
               <p className="text-gray-600">
-                (024) 3869 4242
+                0387 922 560
               </p>
             </div>
             

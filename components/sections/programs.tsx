@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 const programs = [
   {
-    title: "Khoa học Dữ liệu",
+    title: "Khoa học dữ liệu",
     description: "Chương trình đào tạo về phân tích và xử lý dữ liệu lớn",
     icon: "📊",
   },
   {
-    title: "Trí tuệ Nhân tạo",
+    title: "Trí tuệ nhân tạo",
     description: "Nghiên cứu và phát triển các giải pháp AI tiên tiến",
     icon: "🤖",
   },
   {
-    title: "Học Máy",
+    title: "Học máy",
     description: "Ứng dụng machine learning trong các bài toán thực tế",
     icon: "🧠",
   },
   {
-    title: "Công nghệ Số",
+    title: "Công nghệ số",
     description: "Chuyển đổi số và ứng dụng công nghệ trong doanh nghiệp",
     icon: "💻",
   },
@@ -37,7 +37,7 @@ export function Programs() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Chương Trình Đào Tạo
+            Chương trình đào tạo
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Khám phá các chương trình đào tạo chuyên sâu của chúng tôi

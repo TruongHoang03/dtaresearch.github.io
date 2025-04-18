@@ -25,7 +25,7 @@ export function About() {
           
           <div id="about-section">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Về Chúng Tôi
+              Về chúng tôi
             </h2>
             <p className="text-gray-600 mb-6">
               Viện Công nghệ số và Trí tuệ nhân tạo là trung tâm hàng đầu về nghiên cứu và đào tạo trong lĩnh vực công nghệ số và AI tại Việt Nam. Chúng tôi cam kết mang đến những chương trình đào tạo chất lượng cao, kết hợp giữa lý thuyết và thực hành.
@@ -36,6 +36,7 @@ export function About() {
                 "Cơ sở vật chất hiện đại",
                 "Chương trình đào tạo cập nhật",
                 "Cơ hội thực tập và việc làm",
+                "Chuyển giao công nghệ",
               ].map((item, index) => (
                 <motion.li
                   key={index}

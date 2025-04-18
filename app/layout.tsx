@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   title: "Viện Công nghệ số và Trí tuệ nhân tạo",
   description: "Institute of Digital Technology and Artificial Intelligence",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/dta.png", type: "image/png" }
+    ],
     shortcut: "/dta.png",
     apple: "/dta.png",
   }

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const partnerServices = [
   {
     title: "Khả năng hợp tác",
-    description: "Chúng tôi luôn mở rộng cơ hội hợp tác với các doanh nghiệp trong và ngoài nước. Với kinh nghiệm chuyên môn và nền tảng công nghệ vững mạnh.",
+    description: "Kinh nghiệm chuyên môn và nền tảng công nghệ vững mạnh là lợi thế để chúng tôi mở rộng hợp tác với các doanh nghiệp trong và ngoài nước.",
     icon: "🤝",
   },
   {
@@ -32,7 +32,7 @@ export function BusinessPartners() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Doanh Nghiệp & Đối Tác
+            Doanh nghiệp & đối tác
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Cùng nhau xây dựng tương lai công nghệ

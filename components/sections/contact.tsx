@@ -22,7 +22,7 @@ export function Contact() {
               <div className="text-blue-600 text-2xl mb-4">📍</div>
               <h3 className="text-xl font-semibold mb-2">Địa chỉ</h3>
               <p className="text-gray-600">
-                Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội
+                Tầng 2, Tòa V1, Home City, số 177 Phố Trung Kính, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội
               </p>
             </div>
             
@@ -38,18 +38,18 @@ export function Contact() {
               <div className="text-blue-600 text-2xl mb-4">✉️</div>
               <h3 className="text-xl font-semibold mb-2">Email</h3>
               <p className="text-gray-600">
-                info@viencongngheso.edu.vn
+                congnghesovn247@gmail.com
               </p>
             </div>
           </div>
           
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="mt-12 px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors"
           >
             Gửi tin nhắn
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
     </section>

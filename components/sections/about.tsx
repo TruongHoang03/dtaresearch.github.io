@@ -23,12 +23,12 @@ export function About() {
             />
           </div>
           
-          <div>
+          <div id="about-section">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Về Chúng Tôi
             </h2>
             <p className="text-gray-600 mb-6">
-              Viện Công nghệ Số và Trí tuệ nhân tạo là trung tâm hàng đầu về nghiên cứu và đào tạo trong lĩnh vực công nghệ số và AI tại Việt Nam. Chúng tôi cam kết mang đến những chương trình đào tạo chất lượng cao, kết hợp giữa lý thuyết và thực hành.
+              Viện Công nghệ số và Trí tuệ nhân tạo là trung tâm hàng đầu về nghiên cứu và đào tạo trong lĩnh vực công nghệ số và AI tại Việt Nam. Chúng tôi cam kết mang đến những chương trình đào tạo chất lượng cao, kết hợp giữa lý thuyết và thực hành.
             </p>
             <ul className="space-y-4">
               {[

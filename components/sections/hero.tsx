@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-900 to-blue-950">
       <div className="absolute inset-0 z-0">
@@ -24,7 +31,7 @@ export function Hero() {
           className="text-center"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Viện Công nghệ Số và Trí tuệ nhân tạo
+            Viện Công nghệ số và Trí tuệ nhân tạo
           </h1>
           <h2 className="text-xl md:text-2xl text-blue-200 mb-8">
             INSTITUTE OF DIGITAL TECHNOLOGY AND ARTIFICIAL INTELLIGENCE
@@ -34,6 +41,7 @@ export function Hero() {
           </p>
           
           <motion.button
+            onClick={() => scrollToSection("about-section")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors"

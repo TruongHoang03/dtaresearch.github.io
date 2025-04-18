@@ -5,8 +5,13 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Viện Công nghệ Số và Trí tuệ nhân tạo",
+  title: "Viện Công nghệ số và Trí tuệ nhân tạo",
   description: "Institute of Digital Technology and Artificial Intelligence",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/dta.png",
+    apple: "/dta.png",
+  }
 };
 
 export default function RootLayout({

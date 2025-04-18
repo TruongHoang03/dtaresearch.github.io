@@ -11,7 +11,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/landing-page' : '',  // Replace "landing-page" with your repo name
+  // For GitHub Pages with a custom domain, you may not need these:
+  // basePath: '/your-repo-name',
+  // assetPrefix: '/your-repo-name',
   images: {
     unoptimized: true,  // Required for static export
     domains: [],        // Add any external image domains if needed

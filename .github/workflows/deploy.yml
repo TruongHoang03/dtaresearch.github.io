@@ -30,17 +30,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
           
       - name: Install dependencies
         run: npm ci
         
       - name: Build
         run: npm run build
+      
+      - name: Static HTML export
+        run: npx next export
+        # Note: If using Next.js 13.3.0 or later, export is included in build
+        # Remove this step if using newer Next.js versions
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./out
           
       - name: Deploy to GitHub Pages
         id: deployment

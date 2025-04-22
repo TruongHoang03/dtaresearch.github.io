@@ -21,20 +21,20 @@ export function Hero() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-900 to-blue-950">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-tl from-[#0260f2] to-[#32aafe]">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1488229297570-58520851e868?ixlib=rb-4.0.3"
+          src="/images/background.svg"
           alt="AI Background"
           fill
-          className="object-cover opacity-20"
+          className="object-contain opacity-5"
           priority
         />
       </div>
       
       <div className="container mx-auto px-4 z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center"
@@ -42,10 +42,10 @@ export function Hero() {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Viện Công nghệ số và Trí tuệ nhân tạo
           </h1>
-          <h2 className="text-xl md:text-2xl text-blue-200 mb-8">
+          <h2 className="text-xl md:text-2xl text-gray-50 mb-8">
             INSTITUTE OF DIGITAL TECHNOLOGY AND ARTIFICIAL INTELLIGENCE
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-100 max-w-2xl mx-auto">
             Định hình tương lai công nghệ số và trí tuệ nhân tạo thông qua đào tạo, nghiên cứu và đổi mới
           </p>
           

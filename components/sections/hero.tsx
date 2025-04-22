@@ -25,6 +25,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/background.svg"
+          // src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3"
           alt="AI Background"
           fill
           className="object-contain opacity-5"
@@ -39,6 +40,18 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
+          <Image
+            src="/images/background.svg"
+            alt="AI Background"
+            // fill
+            width={300}
+            height={300}
+            className="object-contain mx-auto mb-12"
+            priority
+            sizes="max-width: 100px 100vw, 50vw"
+            quality={100}
+          />
+
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Viện Công nghệ số và Trí tuệ nhân tạo
           </h1>
@@ -58,6 +71,21 @@ export function Hero() {
             Tìm hiểu thêm
           </motion.button>
         </motion.div>
+
+        {/* <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/background.svg"
+          alt="AI Background"
+          fill
+          className="object-contain opacity-10"
+          priority
+          sizes="max-width: 768px 100vw, 50vw"
+          quality={100}
+          loading="eager"
+          placeholder="blur"
+        />
+        </div> */}
+
       </div>
     </section>
   );

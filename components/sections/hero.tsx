@@ -21,10 +21,10 @@ export function Hero() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-tl from-[#0260f2] to-[#32aafe]">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-tl from-[#0260f2]/80 to-[#32aafe]/80">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/background.svg"
+          src="/images/background.jpg"
           // src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3"
           alt="AI Background"
           fill

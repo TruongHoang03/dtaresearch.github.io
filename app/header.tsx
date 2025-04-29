@@ -4,10 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   // Thay đổi header style khi scroll
   useEffect(() => {
@@ -18,6 +21,19 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Effect để kiểm tra nếu cần scroll sau khi chuyển hướng
+  useEffect(() => {
+    // Kiểm tra nếu có storage flag đã được set
+    const shouldScrollToAbout = localStorage.getItem('scrollToAboutSection');
+    if (shouldScrollToAbout === 'true' && pathname === '/') {
+      localStorage.removeItem('scrollToAboutSection');
+      
+      setTimeout(() => {
+        scrollToSection('about-section');
+      }, 500);
+    }
+  }, [pathname]);
+
   // Thêm hàm scroll đến section
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -25,7 +41,7 @@ export function Header() {
       // Lấy vị trí của section
       const sectionTop = section.getBoundingClientRect().top;
       // Vị trí hiện tại + vị trí của section - offset (để tránh bị che bởi header)
-      const offsetPosition = window.pageYOffset + sectionTop - 80;
+      const offsetPosition = window.pageYOffset + sectionTop - 100;
       
       // Scroll đến vị trí có tính toán offset
       window.scrollTo({
@@ -33,6 +49,25 @@ export function Header() {
         behavior: "smooth"
       });
     }
+    // Đóng mobile menu nếu đang mở
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
+
+  // Hàm xử lý click vào nút "Về chúng tôi"
+  const handleAboutClick = () => {
+    const section = document.getElementById('about-section');
+    
+    if (section) {
+      // Nếu section tồn tại trên trang hiện tại, scroll đến đó
+      scrollToSection('about-section');
+    } else {
+      // Nếu không, set flag và chuyển hướng về trang chủ
+      localStorage.setItem('scrollToAboutSection', 'true');
+      router.push('/');
+    }
+    
     // Đóng mobile menu nếu đang mở
     if (mobileMenuOpen) {
       setMobileMenuOpen(false);
@@ -62,9 +97,9 @@ export function Header() {
             <Link href="/" className="text-white hover:text-blue-200 transition-colors">
               Trang chủ
             </Link>
-            {/* Thay đổi link thành button để scroll */}
+            {/* Thay đổi để sử dụng hàm handleAboutClick */}
             <button
-              onClick={() => scrollToSection("about-section")}
+              onClick={handleAboutClick}
               className="text-white hover:text-blue-200 transition-colors bg-transparent"
             >
               Về chúng tôi
@@ -107,13 +142,13 @@ export function Header() {
               >
                 Trang chủ
               </Link>
-              <Link 
-                href="/dao-tao" 
-                className="text-white hover:text-blue-200 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              {/* Thay đổi để sử dụng hàm handleAboutClick */}
+              <button
+                onClick={handleAboutClick}
+                className="text-white hover:text-blue-200 transition-colors text-left bg-transparent"
               >
-                Chương trình đào tạo
-              </Link>
+                Về chúng tôi
+              </button>
               <Link 
                 href="/tuyen-dung" 
                 className="text-white hover:text-blue-200 transition-colors"
@@ -121,13 +156,6 @@ export function Header() {
               >
                 Tuyển dụng
               </Link>
-              {/* Thay đổi link thành button để scroll */}
-              <button
-                onClick={() => scrollToSection("about-section")}
-                className="text-white hover:text-blue-200 transition-colors text-left bg-transparent"
-              >
-                Về chúng tôi
-              </button>
             </div>
           </motion.nav>
         )}

@@ -16,7 +16,7 @@ export function About() {
         >
           <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3"
+              src="./images/about.jpeg"
               alt="AI Research"
               fill
               className="object-cover"

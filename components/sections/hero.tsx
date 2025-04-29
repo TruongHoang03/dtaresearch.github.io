@@ -21,7 +21,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-tl from-[#0260f2]/80 to-[#32aafe]/80">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-tl from-[#0260f2]/50 to-[#32aafe]/80">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/background.jpg"
@@ -44,8 +44,8 @@ export function Hero() {
             src="/images/background.svg"
             alt="AI Background"
             // fill
-            width={300}
-            height={300}
+            width={270}
+            height={270}
             className="object-contain mx-auto mb-12"
             priority
             sizes="max-width: 100px 100vw, 50vw"

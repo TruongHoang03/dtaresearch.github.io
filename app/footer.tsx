@@ -123,7 +123,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-blue-800 mt-8 pt-8 text-center text-sm text-blue-200">
-          <p>&copy; {currentYear} Viện Công nghệ số và Trí tuệ nhân tạo. All rights reserved.</p>
+          <p>&copy; {currentYear} Viện Công nghệ số và Trí tuệ nhân tạo.</p>
         </div>
       </div>
     </footer>

@@ -67,8 +67,7 @@ export function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                 </svg>
-                {/* <span>15 Nguyễn Tri Phương, phường Minh Khai, quận Hồng Bàng, thành phố Hải Phòng</span> */}
-                <span>Tầng 2, Tòa V1, Home City, số 177 phố Trung Kính, phường Yên Hòa, quận Cầu Giấy, thành phố Hà Nội</span>
+                <span>Tầng 2, tòa V1, Home City, số 177 phố Trung Kính, phường Yên Hòa, quận Cầu Giấy, thành phố Hà Nội</span>
               </p>
               <p className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 flex-shrink-0">

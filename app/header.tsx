@@ -41,7 +41,7 @@ export function Header() {
       // Lấy vị trí của section
       const sectionTop = section.getBoundingClientRect().top;
       // Vị trí hiện tại + vị trí của section - offset (để tránh bị che bởi header)
-      const offsetPosition = window.pageYOffset + sectionTop - 100;
+      const offsetPosition = window.pageYOffset + sectionTop - 80;
       
       // Scroll đến vị trí có tính toán offset
       window.scrollTo({

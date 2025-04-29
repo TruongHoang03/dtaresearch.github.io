@@ -52,7 +52,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-blue-100 text-sm mb-4">
-              Nghiên cứu, phát triển và ứng dụng công nghệ số 
+              Nghiên cứu, phát triển, ứng dụng công nghệ số 
               và trí tuệ nhân tạo cho các tổ chức, doanh nghiệp 
               nhằm gia tăng hiệu quả hoạt động và năng lực cạnh tranh.
             </p>

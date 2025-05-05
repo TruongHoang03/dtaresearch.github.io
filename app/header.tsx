@@ -104,6 +104,9 @@ export function Header() {
             >
               Về chúng tôi
             </button>
+            <Link href="/san-pham" className="text-white hover:text-blue-200 transition-colors">
+              Sản phẩm
+            </Link>
             <Link href="/tuyen-dung" className="text-white hover:text-blue-200 transition-colors">
               Tuyển dụng
             </Link>
@@ -149,6 +152,13 @@ export function Header() {
               >
                 Về chúng tôi
               </button>
+              <Link 
+                href="/san-pham" 
+                className="text-white hover:text-blue-200 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Sản phẩm
+              </Link>
               <Link 
                 href="/tuyen-dung" 
                 className="text-white hover:text-blue-200 transition-colors"

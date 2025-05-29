@@ -47,7 +47,7 @@ export default function SanPham() {
             >
               <div className="p-4 bg-blue-600">
                 <Image
-                  src="/images/lms.png"
+                  src="/images/aiteaching.png"
                   alt="Learn Management System"
                   width={600}
                   height={300}
@@ -55,9 +55,9 @@ export default function SanPham() {
                 />
               </div>
               <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">LMS (Learning Management System)</h2>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">Trợ giảng AI</h2>
                 <p className="text-gray-600 mb-4">
-                Hệ thống LMS này được thiết kế để hỗ trợ quản lý và tổ chức việc học tập trực tuyến một cách hiệu quả.
+                  Hệ thống được thiết kế để hỗ trợ quản lý và tổ chức việc học tập trực tuyến một cách hiệu quả.
                 </p>
                 <Link href="https://docs.google.com/presentation/d/18t7Nf5jtQkgB-ztxVO_M1sN8C2xZFIVh/edit?usp=sharing&ouid=110046197536263861925&rtpof=true&sd=true" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition-colors">
                   Tìm hiểu thêm

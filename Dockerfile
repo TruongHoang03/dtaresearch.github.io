@@ -10,9 +10,11 @@ COPY prisma ./prisma/
 # Install dependencies
 RUN npm install
 
+
+ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
+ENV NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID
 # Copy project files
 COPY . .
-
 # Build project
 RUN npm run build
 
@@ -21,9 +23,16 @@ FROM node:18-alpine AS runner
 
 WORKDIR /app
 
+
+ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
+ENV NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID
 # Set to production environment
 ENV NODE_ENV production
 
+# ...existing code...
+
+
+# ...existing code...
 # Create system user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

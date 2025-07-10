@@ -55,7 +55,9 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GATracker />
         </Suspense>
-        {children}
+        <Header />
+          <main>{children}</main>
+        <Footer />
         <Toaster richColors />
       </body>
     </html>
